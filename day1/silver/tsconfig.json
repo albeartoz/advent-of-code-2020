@@ -1,1 +1,1 @@
-{"compilerOptions": {"lib": ["ES6"]}
+{"compilerOptions": {"lib": ["ES6", "DOM"]}}
