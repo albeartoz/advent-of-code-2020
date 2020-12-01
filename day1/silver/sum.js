@@ -19,6 +19,6 @@ function twoSum(nums, target) {
 function printAns() {
     var nums = parseString(numbers);
     var indices = twoSum(nums, 2020);
-    console.log(indices);
+    console.log(parseInt(nums[indices[0]]) * parseInt(nums[indices[1]]));
 }
 printAns();

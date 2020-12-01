@@ -224,7 +224,7 @@ function twoSum(nums: string[], target: number): number[] {
 function printAns() {
     const nums: string[] = parseString(numbers)
     const indices: number[] = twoSum(nums, 2020)
-    console.log(indices)
+    console.log(parseInt(nums[indices[0]]) * parseInt(nums[indices[1]]))
 }
 
 printAns()
