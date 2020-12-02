@@ -1,4 +1,4 @@
-let numbers: string = `1975
+const numbers: string = `1975
 1600
 113
 1773
