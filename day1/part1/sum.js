@@ -16,9 +16,29 @@ function twoSum(nums, target) {
     }
     return result;
 }
+function threeSum(nums, target) {
+    var m = new Map();
+    var result = [];
+    for (var i = 0; i < nums.length; i++) {
+        var current = parseInt(nums[i]);
+        var curr_sum = target - current;
+        for (var j = i + 1; j < nums.length; j++) {
+            var inner = parseInt(nums[j]);
+            var match = m.get(curr_sum - inner);
+            if (match !== undefined) {
+                result = [i, j, match];
+                break;
+            }
+        }
+        m.set(current, i);
+    }
+    return result;
+}
 function printAns() {
     var nums = parseString(numbers);
-    var indices = twoSum(nums, 2020);
-    console.log(parseInt(nums[indices[0]]) * parseInt(nums[indices[1]]));
+    var twoSumIndices = twoSum(nums, 2020);
+    var threeSumIndices = threeSum(nums, 2020);
+    console.log("two sum " + parseInt(nums[twoSumIndices[0]]) * parseInt(nums[twoSumIndices[1]]));
+    console.log("three sum " + parseInt(nums[threeSumIndices[0]]) * parseInt(nums[threeSumIndices[1]]) * parseInt(nums[threeSumIndices[2]]));
 }
 printAns();

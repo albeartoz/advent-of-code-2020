@@ -221,10 +221,33 @@ function twoSum(nums: string[], target: number): number[] {
     return result;
 }
 
+function threeSum(nums: string[], target: number): number[] {
+    let m = new Map();
+    let result: number[] = [];
+    
+    for (let i = 0; i < nums.length; i++) {
+        const current = parseInt(nums[i]);
+        const curr_sum = target - current;
+        for (let j = i + 1; j < nums.length; j++) {
+            const inner = parseInt(nums[j]);
+            const match = m.get(curr_sum - inner);
+            if (match !== undefined) {
+                result = [i, j, match];
+                break;
+            }
+        }
+        m.set(current, i); 
+    }
+
+    return result;
+}
+
 function printAns() {
     const nums: string[] = parseString(numbers)
-    const indices: number[] = twoSum(nums, 2020)
-    console.log(parseInt(nums[indices[0]]) * parseInt(nums[indices[1]]))
+    const twoSumIndices: number[] = twoSum(nums, 2020)
+    const threeSumIndices: number[] = threeSum(nums, 2020)
+    console.log("two sum " + parseInt(nums[twoSumIndices[0]]) * parseInt(nums[twoSumIndices[1]]))
+    console.log("three sum " + parseInt(nums[threeSumIndices[0]]) * parseInt(nums[threeSumIndices[1]]) * parseInt(nums[threeSumIndices[2]]))
 }
 
 printAns()
